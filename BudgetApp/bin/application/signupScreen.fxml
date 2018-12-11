@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.signupScreenController">
+   <children>
+      <Pane layoutX="-93.0" layoutY="-120.0" prefHeight="700.0" prefWidth="450.0" style="-fx-background-color: #ffffff;">
+         <children>
+            <Rectangle fx:id="blueOverlay" arcHeight="5.0" arcWidth="5.0" fill="#002a51" height="592.0" layoutX="89.0" layoutY="112.0" stroke="TRANSPARENT" strokeType="INSIDE" width="369.0" />
+            <Label fx:id="signupLabel" layoutX="244.0" layoutY="128.0" prefHeight="41.0" prefWidth="65.0" text="SIGNUP" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="createUsernameLabel" layoutX="147.0" layoutY="178.0" prefHeight="17.0" prefWidth="143.0" text="CREATE USERNAME" textFill="WHITE" />
+            <TextField fx:id="createUsernameField" layoutX="144.0" layoutY="204.0" prefHeight="25.0" prefWidth="258.0" />
+            <Label fx:id="createPasswordLabel" layoutX="147.0" layoutY="240.0" prefHeight="17.0" prefWidth="143.0" text="CREATE PASSWORD" textFill="WHITE" />
+            <TextField fx:id="createPasswordField" layoutX="142.0" layoutY="264.0" prefHeight="25.0" prefWidth="258.0" />
+            <Button fx:id="addInfoButton" layoutX="145.0" layoutY="636.0" mnemonicParsing="false" onAction="#addInfo" prefHeight="41.0" prefWidth="258.0" style="-fx-background-color: #ffffff;" text="ADD ACCOUNT INFORMATION" textFill="#ff6600">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="firstNameLabel" layoutX="145.0" layoutY="305.0" prefHeight="17.0" prefWidth="143.0" text="FIRST NAME" textFill="WHITE" />
+            <TextField fx:id="firstNameField" layoutX="142.0" layoutY="331.0" prefHeight="25.0" prefWidth="258.0" />
+            <Label fx:id="lastNameLabel" layoutX="145.0" layoutY="368.0" prefHeight="17.0" prefWidth="143.0" text="LAST NAME" textFill="WHITE" />
+            <TextField fx:id="lastNameField" layoutX="142.0" layoutY="394.0" prefHeight="25.0" prefWidth="258.0" />
+            <Label fx:id="incomeSourceLabel" layoutX="145.0" layoutY="430.0" prefHeight="17.0" prefWidth="258.0" text="INCOME SOURCE (Example: Bob's Deli)" textFill="WHITE" />
+            <TextField fx:id="incomeSourceField" layoutX="142.0" layoutY="456.0" prefHeight="25.0" prefWidth="258.0" />
+            <Label fx:id="monthlyIncomeLabel" layoutX="145.0" layoutY="502.0" prefHeight="17.0" prefWidth="143.0" text="MONTHLY INCOME" textFill="WHITE" />
+            <TextField fx:id="monthlyIncomeField" layoutX="335.0" layoutY="520.0" prefHeight="25.0" prefWidth="65.0" />
+            <Button fx:id="createAccountButton" layoutX="145.0" layoutY="636.0" mnemonicParsing="false" onAction="#createAccount" prefHeight="41.0" prefWidth="258.0" style="-fx-background-color: #ffff00;" text="CREATE ACCOUNT" textFill="#080028">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="monthlyBudgetLabel" layoutX="145.0" layoutY="565.0" prefHeight="17.0" prefWidth="226.0" text=" YOUR BUDGET (Example: $500.00)" textFill="WHITE" />
+            <TextField fx:id="monthlyBudgetField" layoutX="335.0" layoutY="582.0" prefHeight="25.0" prefWidth="65.0" />
+            <Button fx:id="backButton" layoutX="142.0" layoutY="136.0" mnemonicParsing="false" onAction="#goBack" style="-fx-background-color: #080028;" text="Back" textFill="WHITE" />
+            <Slider fx:id="monthlyIncomeSlider" blockIncrement="100.0" layoutX="147.0" layoutY="526.0" max="5000.0" minorTickCount="25" prefHeight="14.0" prefWidth="181.0" />
+            <Slider fx:id="budgetSlider" blockIncrement="100.0" layoutX="147.0" layoutY="588.0" max="3000.0" minorTickCount="25" prefHeight="14.0" prefWidth="181.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

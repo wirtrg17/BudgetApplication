@@ -1,0 +1,9 @@
+/*style pie chart slice colors */
+.data0.chart-pie { -fx-pie-color: #ff6f00; }
+.data1.chart-pie { -fx-pie-color: #ff8f00; }
+.data2.chart-pie { -fx-pie-color: #ffa000; }
+.data3.chart-pie { -fx-pie-color: #ffc107; }
+.data4.chart-pie { -fx-pie-color: #ffd54f; }
+.data5.chart-pie { -fx-pie-color: #fff176; }
+
+.budgetAmountLabel {-fx-text-alignment: center;}
