@@ -24,13 +24,13 @@
             <Label fx:id="usersLabel" layoutX="143.0" layoutY="324.0" prefHeight="17.0" prefWidth="140.0" text="USERS ON ACCOUNT" textFill="WHITE" />
             <TextField fx:id="usersField" layoutX="139.0" layoutY="348.0" prefHeight="25.0" prefWidth="285.0" promptText="Ex. Me, John Doe" />
             <Label fx:id="balanceLabel" layoutX="142.0" layoutY="412.0" prefHeight="17.0" prefWidth="204.0" text="ACCOUNT TOTAL BALANCE" textFill="WHITE" />
-            <TextField fx:id="balanceField" layoutX="138.0" layoutY="459.0" prefHeight="25.0" prefWidth="285.0" />
+            <TextField fx:id="balanceField" editable="false" layoutX="138.0" layoutY="459.0" prefHeight="25.0" prefWidth="285.0" />
             <Button fx:id="myBudgetButton" layoutX="139.0" layoutY="509.0" mnemonicParsing="false" onAction="#myBudget" prefHeight="44.0" prefWidth="285.0" style="-fx-background-color: #ffff00;" text="Update Info" textFill="#080028">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
             </Button>
-            <Slider fx:id="balanceSlider" layoutX="138.0" layoutY="437.0" max="100000.0" prefHeight="14.0" prefWidth="285.0" />
+            <Slider fx:id="balanceSlider" layoutX="138.0" layoutY="437.0" max="100000.0" minorTickCount="253" prefHeight="14.0" prefWidth="285.0" />
          </children></Pane>
    </children>
 </AnchorPane>

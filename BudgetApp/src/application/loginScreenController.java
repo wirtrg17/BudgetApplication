@@ -56,11 +56,13 @@ public class loginScreenController {
 	    private PasswordField passwordField;
    
 	    public static String user_name;
-    
+
+	
 
     // when the login button is pressed
     @FXML
     void login(ActionEvent event) throws ClassNotFoundException, IOException, SQLException {
+    	
     	//check to see if their information is in the system
     	DBConntection.DBconnect();
 		       Statement st = DBConntection.conn.createStatement();
@@ -86,10 +88,9 @@ public class loginScreenController {
 			    	budgetStage.setScene(budgetScene);
 			    	budgetStage.show();
 			    	budgetStage.setTitle("My Budget");
-			    
+
 			    //close MySQL connection
-			    DBConntection.conn.close();
-			    
+			    DBConntection.conn.close(); 
 		       } else {
 		    	   //validate user input
 		    	   Alert alert = new Alert(AlertType.INFORMATION);
@@ -97,13 +98,15 @@ public class loginScreenController {
 		    	   alert.setHeaderText("Login Unsuccessful");
 		    	   alert.setContentText("Your username or password may be incorrect or you may need to register.");
 		    	   alert.showAndWait(); 
-		       }             
-    }
+		       	}
+		        
+    	} 
 
     // when the sign up button is pushed
     @FXML
     void signup(ActionEvent event) throws IOException {
 
+    	
     	//switch to sign up screen
     	Parent signupParent = FXMLLoader.load(getClass().getResource("signupScreen.fxml"));
     	Scene signupScene = new Scene (signupParent);
@@ -111,6 +114,6 @@ public class loginScreenController {
     	signupStage.setScene(signupScene);
     	signupStage.show();
     	signupStage.setTitle("Sign Up");
-    }
+    	}
 
 }

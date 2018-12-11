@@ -1,5 +1,6 @@
 package application;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -46,21 +47,24 @@ public class addInfoController {
     
     String username = signupScreenController.user_name;
 
-    public void initialize() {
+    public void initialize() throws FileNotFoundException {
+    	
     	//user directions
 		 Alert alert = new Alert(AlertType.INFORMATION);
 	 	   alert.setTitle("Account Information");
 	 	   alert.setHeaderText("Add Account Information.");
 	 	   alert.setContentText("Please fill out every field in this form to add your account details. All fields must be filled out to create your account.\nPress OK to continue.");
 	 	   alert.showAndWait();
-    }
+	 	   
+	 	  balanceField.textProperty().bind(balanceSlider.valueProperty().asString("%.2f"));
+    	} 
+    
     
     @FXML
     void myBudget(ActionEvent event) throws SQLException, ClassNotFoundException, IOException {
-    	
-    	balanceField.textProperty().bind(balanceSlider.valueProperty().asString("%.2f"));
+    
+    
     	Double accBalance = Double.parseDouble(balanceField.getText());
-    	
     	//validate user input to make sure no field is left blank
     	if (accountTypeField.getText().isEmpty() || accBalance <= 0.0 || usersField.getText().isEmpty()) {
     		  Alert alert = new Alert(AlertType.INFORMATION);
@@ -68,7 +72,8 @@ public class addInfoController {
 	    	   alert.setHeaderText("Error.");
 	    	   alert.setContentText("You must not leave any field blank.");
 	    	   alert.showAndWait();
-	       } else {
+	       } 
+    	else {
 	    	   
 	   //if all fields are filled, add additional info to database
 	       	DBConntection.DBconnect();
@@ -107,6 +112,5 @@ public class addInfoController {
 		       	DBConntection.conn.close();
 		       	
 	   } 	
-    }
-
+    } 
 }

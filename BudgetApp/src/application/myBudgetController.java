@@ -1,5 +1,6 @@
 package application;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -114,7 +115,9 @@ public class myBudgetController {
     double food = 0; double fuel = 0; double rent = 0; double entertainment = 0; double other = 0; double moneySpent = 0; 
     double budgetAmt = 0; double availableMoney = 0;
     
-    public void getData() throws ClassNotFoundException, SQLException {
+    public void getData() throws ClassNotFoundException, SQLException, FileNotFoundException {
+    	
+    	
     	DBConntection.DBconnect();
 
 	       //get "food" data to display into pie chart
@@ -171,9 +174,10 @@ public class myBudgetController {
                       availableMoney = budgetAmt-moneySpent;
                        
                        DBConntection.conn.close();
-       } 
+    	}
+       
    
-    public void initialize() throws SQLException, ClassNotFoundException {
+    public void initialize() throws SQLException, ClassNotFoundException, FileNotFoundException {
     	
     	amountSlider.setVisible(false);
     	transactionTextLabel.textProperty().bind(amountSlider.valueProperty().asString("%.2f"));
@@ -228,7 +232,8 @@ public class myBudgetController {
     	categoryMenu.getItems().addAll("Food", "Fuel", "Rent", "Entertainment", "Other");
     	
     	DBConntection.conn.close();
-    }
+    	}
+    
     
     //exit add transaction
     @FXML
@@ -242,7 +247,7 @@ public class myBudgetController {
     }
     
     //function to see if date is in MM/DD/YYYY format, if not return error
-   public boolean isInvalid()  {
+   public boolean isInvalid() throws FileNotFoundException  {
        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
        sdf.setLenient(true);
        String uDate = dateTextField.getText();
@@ -251,13 +256,16 @@ public class myBudgetController {
            return false;
        }
        catch(Exception e)
-       {}
+       {
+    	  
+       }
 	return true;
    }  
    
     //add transactions button
     @FXML
     void add(ActionEvent event) throws SQLException, ClassNotFoundException, IOException, ParseException {
+    	
     	//show elements
     	transactionCover.setVisible(true);
     	addTransactionButton.setVisible(true);
@@ -309,10 +317,9 @@ public class myBudgetController {
 		    	budgetStage.show();
 		    	budgetStage.setTitle("My Budget");
 		    	
-		    	DBConntection.conn.close();
-    		
-    	} 
-    }
+		    	DBConntection.conn.close();}
+    	}
+    
  
     @FXML
     void addTransaction(ActionEvent event) throws ClassNotFoundException, SQLException {
@@ -342,6 +349,5 @@ public class myBudgetController {
        	loginScreenStage.setScene(loginScreenScene);
        	loginScreenStage.show();
        	loginScreenStage.setTitle("Budget Buddy | Login or Signup");
-    }
-
+    } 
 }

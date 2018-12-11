@@ -48,8 +48,8 @@
               <columns>
                 <TableColumn fx:id="col_date" prefWidth="76.0" text="Date" />
                 <TableColumn fx:id="col_description" prefWidth="94.0" text="Category" />
-                  <TableColumn fx:id="col_amount" text="Amount" />
-                  <TableColumn fx:id="col_comments" prefWidth="251.0" text="Comments" />
+                  <TableColumn fx:id="col_amount" prefWidth="96.0" text="Amount" />
+                  <TableColumn fx:id="col_comments" prefWidth="235.0" text="Comments" />
               </columns>
             </TableView>
             <Label fx:id="budgetAmountLabel" layoutX="136.0" layoutY="187.0" prefHeight="23.0" prefWidth="286.0" stylesheets="@application.css" />

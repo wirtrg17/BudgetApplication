@@ -1,5 +1,6 @@
 package application;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -92,7 +93,9 @@ public class signupScreenController {
     static String user_name;
 
     
-    public void initialize() {
+    public void initialize() throws FileNotFoundException {
+    	
+    	
     	monthlyIncomeField.textProperty().bind(monthlyIncomeSlider.valueProperty().asString("%.2f"));
     	monthlyBudgetField.textProperty().bind(budgetSlider.valueProperty().asString("%.2f"));
    
@@ -102,12 +105,13 @@ public class signupScreenController {
 	 	   alert.setHeaderText("Welcome to Budget Buddy!");
 	 	   alert.setContentText("Please fill out every field in this form to create your account.\nPress OK to continue.");
 	 	   alert.showAndWait();
-
-    }
+    	} 
+    
     
    //create new account in mySql database
     @FXML
     void createAccount(ActionEvent event) throws SQLException, ClassNotFoundException, IOException {
+    	
     	Double monthlyIn = Double.parseDouble(monthlyIncomeField.getText());
     	Double monthBud = Double.parseDouble(monthlyBudgetField.getText());
     	
@@ -121,7 +125,14 @@ public class signupScreenController {
 	    	   alert.setHeaderText("Error.");
 	    	   alert.setContentText("You must not leave any field blank.");
 	    	   alert.showAndWait();
-	       } else {
+	       } else if (monthBud > monthlyIn) {
+	    	   //ensure budget is not more than income
+	    	   Alert alert = new Alert(AlertType.INFORMATION);
+	    	   alert.setTitle("Create An Account");
+	    	   alert.setHeaderText("Error.");
+	    	   alert.setContentText("Your budget cannot be greater than your monthly income.");
+	    	   alert.showAndWait();
+	       }else {
 	    	   
 	   //if all fields are filled, add user to database
 	       	DBConntection.DBconnect();
@@ -175,12 +186,12 @@ public class signupScreenController {
 	       	DBConntection.conn.close();
 		       }   
          }
+    	} 
     
-    } 
-
     //return to home screen
     @FXML
     void goBack(ActionEvent event) throws IOException {
+    	
     	Parent loginScreenParent = FXMLLoader.load(getClass().getResource("loginScreen.fxml"));
        	Scene loginScreenScene = new Scene (loginScreenParent);
        	Stage loginScreenStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
